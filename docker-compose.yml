@@ -21,6 +21,7 @@ services:
       - default
     environment:
       - VIRTUAL_HOST=www.porterverse.com
+      - LETSENCRYPT_HOST=www.porterverse.com
     volumes:
       - ./html/:/var/www/html
       - ./nginx/conf/nginx.conf:/etc/nginx/conf/nginx.conf:ro
