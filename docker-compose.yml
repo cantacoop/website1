@@ -42,6 +42,19 @@ services:
       - MYSQL_USER=devops
       - MYSQL_PASSWORD=devops101
 
+  pma:
+    container_name: lemp-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    networks:
+      - webproxy
+      - default
+    environment:
+      - VIRTUAL_HOST=mydb.porterverse.com
+      - LETSENCRYPT_HOST=mydb.porterverse.com
+    expose:
+      - 80
+
 networks:
   default:
     external:
